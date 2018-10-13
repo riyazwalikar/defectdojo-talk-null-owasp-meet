@@ -1,0 +1,893 @@
+<?xml version="1.0"?><OWASPZAPReport version="2.7.0" generated="Sat, 13 Oct 2018 09:37:14">
+<site name="http://192.168.56.101" host="192.168.56.101" port="80" ssl="false"><alerts><alertitem>
+  <pluginid>10021</pluginid>
+  <alert>X-Content-Type-Options Header Missing</alert>
+  <name>X-Content-Type-Options Header Missing</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;The Anti-MIME-Sniffing header X-Content-Type-Options was not set to &apos;nosniff&apos;. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=dns-lookup.php</uri>
+  <method>POST</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Main/WebStatistics</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=secret-administrative-pages.php</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/ManagingTopics</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Know/WebNotify</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=add-to-your-blog.php</uri>
+  <method>POST</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/dav/</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/icons/layout.gif</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/styles/ddsmoothmenu/?C=M;O=A</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Main/WebSearch</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/WebPreferences</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/?C=S;O=D</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/phpMyAdmin/themes/original/img/logo_right.png</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/phpMyAdmin/favicon.ico</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiFuncModule</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=show-log.php</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=framing.php</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Know/WebHome?skin=print</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/edit/TWiki/TWikiForms?topicparent=Know.WebHome</uri>
+  <method>GET</method>
+  <param>X-Content-Type-Options</param>
+  </instance>
+  </instances>
+  <count>323</count>
+  <solution>&lt;p&gt;Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to &apos;nosniff&apos; for all web pages.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.&lt;/p&gt;</solution>
+  <otherinfo>&lt;p&gt;This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.&lt;/p&gt;&lt;p&gt;At &quot;High&quot; threshold this scanner will not alert on client or server error responses.&lt;/p&gt;</otherinfo>
+  <reference>&lt;p&gt;http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx&lt;/p&gt;&lt;p&gt;https://www.owasp.org/index.php/List_of_useful_HTTP_headers&lt;/p&gt;</reference>
+  <cweid>16</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>10020</pluginid>
+  <alert>X-Frame-Options Header Not Set</alert>
+  <name>X-Frame-Options Header Not Set</name>
+  <riskcode>2</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Medium (Medium)</riskdesc>
+  <desc>&lt;p&gt;X-Frame-Options header is not included in the HTTP response to protect against &apos;ClickJacking&apos; attacks.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=source-viewer.php</uri>
+  <method>POST</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Know/WebHome?topic=ZAP</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiVariables</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/TWikiDocumentation.html</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/InterwikiPlugin</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Sandbox/WebHome</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/WebHome?topic=ZAP</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Sandbox/WebIndex</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Know/WebChanges</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=usage-instructions.php</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiSystemRequirements</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/StartingPoints</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiAccessControl</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/ddsmoothmenu/?C=M;O=D</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/SiteMap</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/AppendixFileSystem</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Know/WebHome</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiPreferences</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=user-info.php</uri>
+  <method>GET</method>
+  <param>X-Frame-Options</param>
+  </instance>
+  </instances>
+  <count>262</count>
+  <solution>&lt;p&gt;Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it&apos;s set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it&apos;s part of a FRAMESET) then you&apos;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in supported web browsers).&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx&lt;/p&gt;</reference>
+  <cweid>16</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>10016</pluginid>
+  <alert>Web Browser XSS Protection Not Enabled</alert>
+  <name>Web Browser XSS Protection Not Enabled</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;Web Browser XSS Protection is not enabled, or is disabled by the configuration of the &apos;X-XSS-Protection&apos; HTTP response header on the web server&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?forwardurl=http://www.room362.com/&amp;page=redirectandlog.php</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/phpMyAdmin/</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/dvwa/login.php</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/PeterThoeny</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=browser-info.php</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/ddsmoothmenu/?C=N;O=A</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/styles/ddsmoothmenu/?C=M;O=D</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=source-viewer.php</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiInstallationGuide</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/ddsmoothmenu/?C=N;O=D</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=change-log.htm</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/FileAttachment</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/InterWikis</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiSiteTools</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/GoodStyle</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/oops/TWiki/WebHome?param1=1.79&amp;param2=1.79&amp;template=oopsmore</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?forwardurl=http://www.pocodoy.com/blog/&amp;page=redirectandlog.php</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Sandbox/WebChanges</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/Main/WebHome?topic=ZAP</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=password-generator.php</uri>
+  <method>GET</method>
+  <param>X-XSS-Protection</param>
+  </instance>
+  </instances>
+  <count>284</count>
+  <solution>&lt;p&gt;Ensure that the web browser&apos;s XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to &apos;1&apos;.&lt;/p&gt;</solution>
+  <otherinfo>&lt;p&gt;The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser&apos;s XSS protection mechanism. The following values would attempt to enable it: &lt;/p&gt;&lt;p&gt;X-XSS-Protection: 1; mode=block&lt;/p&gt;&lt;p&gt;X-XSS-Protection: 1; report=http://www.example.com/xss&lt;/p&gt;&lt;p&gt;The following values would disable it:&lt;/p&gt;&lt;p&gt;X-XSS-Protection: 0&lt;/p&gt;&lt;p&gt;The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).&lt;/p&gt;&lt;p&gt;Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).&lt;/p&gt;</otherinfo>
+  <reference>&lt;p&gt;https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet&lt;/p&gt;&lt;p&gt;https://blog.veracode.com/2014/03/guidelines-for-setting-security-headers/&lt;/p&gt;</reference>
+  <cweid>933</cweid>
+  <wascid>14</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>90022</pluginid>
+  <alert>Application Error Disclosure</alert>
+  <name>Application Error Disclosure</name>
+  <riskcode>2</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Medium (Medium)</riskdesc>
+  <desc>&lt;p&gt;This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/ddsmoothmenu/?C=D;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/vulnerabilities.php</uri>
+  <method>GET</method>
+  <evidence>&lt;b&gt;Warning&lt;/b&gt;:  include_once(./includes/back-button.inc) [&lt;a href=&apos;function.include-once&apos;&gt;function.include-once&lt;/a&gt;]: failed to open stream: No such file or directory in &lt;b&gt;/var/www/mutillidae/documentation/vulnerabilities.php&lt;/b&gt; on line &lt;b&gt;3&lt;/b&gt;&lt;br /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/ddsmoothmenu/?C=S;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/dav/?C=N;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/?C=N;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/styles/?C=N;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/dav/?C=M;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/images/?C=N;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/dav/?C=N;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/?C=M;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=add-to-your-blog.php</uri>
+  <method>GET</method>
+  <evidence>Table &apos;metasploit.blogs_table&apos; doesn&apos;t exist</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/?C=N;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/?C=M;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/styles/?C=N;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/javascript/ddsmoothmenu/?C=D;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/images/?C=N;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=view-someones-blog.php</uri>
+  <method>GET</method>
+  <evidence>Table &apos;metasploit.accounts&apos; doesn&apos;t exist</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/?C=N;O=A</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/?C=N;O=D</uri>
+  <method>GET</method>
+  <evidence>Parent Directory</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=text-file-viewer.php</uri>
+  <method>POST</method>
+  <evidence>&lt;b&gt;Warning&lt;/b&gt;:  fopen() [&lt;a href=&apos;function.fopen&apos;&gt;function.fopen&lt;/a&gt;]: php_network_getaddresses: getaddrinfo failed: Name or service not known in &lt;b&gt;/var/www/mutillidae/text-file-viewer.php&lt;/b&gt; on line &lt;b&gt;115&lt;/b&gt;&lt;br /&gt;</evidence>
+  </instance>
+  </instances>
+  <count>84</count>
+  <solution>&lt;p&gt;Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;&lt;/p&gt;</reference>
+  <cweid>200</cweid>
+  <wascid>13</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>10010</pluginid>
+  <alert>Cookie No HttpOnly Flag</alert>
+  <name>Cookie No HttpOnly Flag</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/phpMyAdmin/phpmyadmin.css.php?js_frame=right&amp;nocache=2457687233&amp;token=63b9e7a1e44e9cc112896ba3ac39ee9e</uri>
+  <method>GET</method>
+  <param>pma_fontsize</param>
+  <evidence>Set-Cookie: pma_fontsize</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=arbitrary-file-inclusion.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/dvwa/</uri>
+  <method>GET</method>
+  <param>security</param>
+  <evidence>Set-Cookie: security</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=credits.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/phpMyAdmin/index.php</uri>
+  <method>POST</method>
+  <param>pma_theme</param>
+  <evidence>Set-Cookie: pma_theme</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=pen-test-tool-lookup.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=home.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/phpMyAdmin/index.php</uri>
+  <method>POST</method>
+  <param>pma_fontsize</param>
+  <evidence>Set-Cookie: pma_fontsize</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=user-info.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=show-log.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=html5-storage.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=set-background-color.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=redirectandlog.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=capture-data.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=installation.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=php-errors.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=user-poll.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-security&amp;page=show-log.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=view-someones-blog.php</uri>
+  <method>GET</method>
+  <param>showhints</param>
+  <evidence>Set-Cookie: showhints</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php</uri>
+  <method>GET</method>
+  <param>PHPSESSID</param>
+  <evidence>Set-Cookie: PHPSESSID</evidence>
+  </instance>
+  </instances>
+  <count>43</count>
+  <solution>&lt;p&gt;Ensure that the HttpOnly flag is set for all cookies.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;http://www.owasp.org/index.php/HttpOnly&lt;/p&gt;</reference>
+  <cweid>16</cweid>
+  <wascid>13</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>10012</pluginid>
+  <alert>Password Autocomplete in Browser</alert>
+  <name>Password Autocomplete in Browser</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;The AUTOCOMPLETE attribute is not disabled on an HTML FORM/INPUT element containing password type input.  Passwords may be stored in browsers and retrieved.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiDocumentation</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=user-info.php</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=register.php</uri>
+  <method>GET</method>
+  <param>confirm_password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;confirm_password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/TWikiDocumentation.html</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=login.php</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; maxlength=&quot;20&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/TWikiDocumentation.html</uri>
+  <method>GET</method>
+  <param>passwordA</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;passwordA&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/TWikiDocumentation.html</uri>
+  <method>GET</method>
+  <param>oldpassword</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;oldpassword&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=register.php</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/?page=register.php</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiDocumentation</uri>
+  <method>GET</method>
+  <param>oldpassword</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;oldpassword&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiDocumentation</uri>
+  <method>GET</method>
+  <param>passwordA</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;passwordA&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=register.php</uri>
+  <method>POST</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiUserAuthentication</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiUserAuthentication</uri>
+  <method>GET</method>
+  <param>passwordA</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;passwordA&quot; size=&quot;40&quot; /&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=register.php</uri>
+  <method>GET</method>
+  <param>confirm_password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;confirm_password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=user-info.php</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=user-info.php&amp;password=ZAP&amp;user-info-php-submit-button=View+Account+Details&amp;username=ZAP</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=login.php</uri>
+  <method>POST</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; maxlength=&quot;20&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=login.php</uri>
+  <method>GET</method>
+  <param>password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;password&quot; maxlength=&quot;20&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=register.php</uri>
+  <method>POST</method>
+  <param>confirm_password</param>
+  <evidence>&lt;input type=&quot;password&quot; name=&quot;confirm_password&quot; size=&quot;20&quot;&gt;</evidence>
+  </instance>
+  </instances>
+  <count>24</count>
+  <solution>&lt;p&gt;Turn off the AUTOCOMPLETE attribute in forms or individual input elements containing password inputs by using AUTOCOMPLETE=&apos;OFF&apos;.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;http://www.w3schools.com/tags/att_input_autocomplete.asp&lt;/p&gt;&lt;p&gt;https://msdn.microsoft.com/en-us/library/ms533486%28v=vs.85%29.aspx&lt;/p&gt;</reference>
+  <cweid>525</cweid>
+  <wascid>15</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>6</pluginid>
+  <alert>Path Traversal</alert>
+  <name>Path Traversal</name>
+  <riskcode>3</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>High (Medium)</riskdesc>
+  <desc>&lt;p&gt;The Path Traversal attack technique allows an attacker access to files, directories, and commands that potentially reside outside the web document root directory. An attacker may manipulate a URL in such a way that the web site will execute or reveal the contents of arbitrary files anywhere on the web server. Any device that exposes an HTTP-based interface is potentially vulnerable to Path Traversal.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Most web sites restrict user access to a specific portion of the file-system, typically called the &quot;web document root&quot; or &quot;CGI root&quot; directory. These directories contain the files intended for user access and the executable necessary to drive web application functionality. To access files or execute commands anywhere on the file-system, Path Traversal attacks will utilize the ability of special-characters sequences.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;The most basic Path Traversal attack uses the &quot;../&quot; special-character sequence to alter the resource location requested in the URL. Although most popular web servers will prevent this technique from escaping the web document root, alternate encodings of the &quot;../&quot; sequence may help bypass the security filters. These method variations include valid and invalid Unicode-encoding (&quot;..%u2216&quot; or &quot;..%c0%af&quot;) of the forward slash character, backslash characters (&quot;..\&quot;) on Windows-based servers, URL encoded characters &quot;%2e%2e%2f&quot;), and double URL encoding (&quot;..%255c&quot;) of the backslash character.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Even if the web server properly restricts Path Traversal attempts in the URL path, a web application itself may still be vulnerable due to improper handling of user-supplied input. This is a common problem of web applications that use template mechanisms or load static text from files. In variations of the attack, the original URL parameter value is substituted with the file name of one of the web application&apos;s dynamic scripts. Consequently, the results can reveal source code because the file is interpreted as text instead of an executable script. These techniques often employ additional special characters such as the dot (&quot;.&quot;) to reveal the listing of the current working directory, or &quot;%00&quot; NULL characters in order to bypass rudimentary file extension checks.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=text-file-viewer.php</uri>
+  <method>POST</method>
+  <param>textfile</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=%2Fetc%2Fpasswd</uri>
+  <method>GET</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=%2Fetc%2Fpasswd</uri>
+  <method>POST</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=source-viewer.php</uri>
+  <method>POST</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?forwardurl=http%3A%2F%2Fwww.php.net%2F&amp;page=%2Fetc%2Fpasswd</uri>
+  <method>GET</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?choice=nmap&amp;initials=ZAP&amp;page=%2Fetc%2Fpasswd&amp;user-poll-php-submit-button=Submit+Vote</uri>
+  <method>GET</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=%2Fetc%2Fpasswd&amp;password=ZAP&amp;user-info-php-submit-button=View+Account+Details&amp;username=ZAP</uri>
+  <method>GET</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?do=toggle-hints&amp;page=%2Fetc%2Fpasswd</uri>
+  <method>GET</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=%2Fetc%2Fpasswd&amp;username=anonymous</uri>
+  <method>GET</method>
+  <param>page</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/Mutillidae-Test-Scripts.txt?query=c%3A%2F</uri>
+  <method>GET</method>
+  <param>query</param>
+  <attack>c:/</attack>
+  <evidence>etc</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=source-viewer.php</uri>
+  <method>POST</method>
+  <param>phpfile</param>
+  <attack>/etc/passwd</attack>
+  <evidence>root:x:0:0</evidence>
+  </instance>
+  </instances>
+  <count>11</count>
+  <solution>&lt;p&gt;Assume all input is malicious. Use an &quot;accept known good&quot; input validation strategy, i.e., use a whitelist of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a blacklist). However, blacklists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, &quot;boat&quot; may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as &quot;red&quot; or &quot;blue.&quot;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;For filenames, use stringent whitelists that limit the character set to be used. If feasible, only allow a single &quot;.&quot; character in the filename to avoid weaknesses, and exclude directory separators such as &quot;/&quot;. Use a whitelist of allowable file extensions.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Warning: if you attempt to cleanse your data, then do so that the end result is not in the form that can be dangerous. A sanitizing mechanism can remove characters such as &apos;.&apos; and &apos;;&apos; which may be required for some exploits. An attacker can try to fool the sanitizing mechanism into &quot;cleaning&quot; data into a dangerous form. Suppose the attacker injects a &apos;.&apos; inside a filename (e.g. &quot;sensi.tiveFile&quot;) and the sanitizing mechanism removes the character resulting in the valid filename, &quot;sensitiveFile&quot;. If the input data are now assumed to be safe, then the file may be compromised. &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Inputs should be decoded and canonicalized to the application&apos;s current internal representation before being validated. Make sure that your application does not decode the same input twice. Such errors could be used to bypass whitelist schemes by introducing dangerous inputs after they have been checked.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Use a built-in path canonicalization function (such as realpath() in C) that produces the canonical version of the pathname, which effectively removes &quot;..&quot; sequences and symbolic links.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Run your code using the lowest privileges that are required to accomplish the necessary tasks. If possible, create isolated accounts with limited privileges that are only used for a single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as the database administrator, especially in day-to-day operations.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;When the set of acceptable objects, such as filenames or URLs, is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames or URLs, and reject all other inputs.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Run your code in a &quot;jail&quot; or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict which files can be accessed in a particular directory or which commands can be executed by your software.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;OS-level examples include the Unix chroot jail, AppArmor, and SELinux. In general, managed code may provide some protection. For example, java.io.FilePermission in the Java SecurityManager allows you to specify restrictions on file operations.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;This may not be a feasible solution, and it only limits the impact to the operating system; the rest of your application may still be subject to compromise.&lt;/p&gt;</solution>
+  <reference>&lt;p&gt;http://projects.webappsec.org/Path-Traversal&lt;/p&gt;&lt;p&gt;http://cwe.mitre.org/data/definitions/22.html&lt;/p&gt;</reference>
+  <cweid>22</cweid>
+  <wascid>33</wascid>
+  <sourceid>1</sourceid>
+</alertitem>
+<alertitem>
+  <pluginid>2</pluginid>
+  <alert>Private IP Disclosure</alert>
+  <name>Private IP Disclosure</name>
+  <riskcode>1</riskcode>
+  <confidence>2</confidence>
+  <riskdesc>Low (Medium)</riskdesc>
+  <desc>&lt;p&gt;A private IP (such as 10.x.x.x, 172.x.x.x, 192.168.x.x) or an Amazon EC2 private hostname (for example, ip-10-0-56-78) has been found in the HTTP response body. This information might be helpful for further attacks targeting internal systems.&lt;/p&gt;</desc>
+  <instances>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/Mutillidae-Test-Scripts.txt</uri>
+  <method>GET</method>
+  <evidence>192.168.56.103</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php</uri>
+  <method>GET</method>
+  <evidence>192.168.56.0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=documentation/how-to-access-Mutillidae-over-Virtual-Box-network.php</uri>
+  <method>GET</method>
+  <evidence>192.168.56.0</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiDocumentation</uri>
+  <method>GET</method>
+  <evidence>192.168.56.1</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/twiki/bin/view/TWiki/TWikiVariables</uri>
+  <method>GET</method>
+  <evidence>192.168.56.1</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=browser-info.php</uri>
+  <method>GET</method>
+  <evidence>192.168.56.1</evidence>
+  </instance>
+  <instance>
+  <uri>http://192.168.56.101/mutillidae/index.php?page=capture-data.php</uri>
+  <method>GET</method>
+  <evidence>192.168.56.1</evidence>
+  </instance>
+  </instances>
+  <count>7</count>
+  <solution>&lt;p&gt;Remove the private IP address from the HTTP response body.  For comments, use JSP/ASP/PHP comment instead of HTML/JavaScript comment which can be seen by client browsers.&lt;/p&gt;</solution>
+  <otherinfo>&lt;p&gt;192.168.56.103&lt;/p&gt;&lt;p&gt;192.168.56.102&lt;/p&gt;&lt;p&gt;192.168.56.102&lt;/p&gt;&lt;p&gt;192.168.1.1&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</otherinfo>
+  <reference>&lt;p&gt;https://tools.ietf.org/html/rfc1918&lt;/p&gt;</reference>
+  <cweid>200</cweid>
+  <wascid>13</wascid>
+  <sourceid>3</sourceid>
+</alertitem>
+</alerts></site></OWASPZAPReport>
